@@ -1,7 +1,34 @@
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+"use client";
+import { Button } from "@/components/ui/button";
+import FullCalendar from "@fullcalendar/react";
+import Image from "next/image";
+import daygridPlugin from "@fullcalendar/daygrid";
+import "./calendar.css";
+import interactionPlugins from "@fullcalendar/interaction";
+import { DateSelectArg, EventClickArg } from "@fullcalendar/core/index.js";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
+  const handleDateClick = (arg: DateSelectArg) => {
+    let title = prompt("일정을 적어주세요");
+    let calendarApi = arg.view.calendar;
+    calendarApi.unselect();
+
+    if (title) {
+      calendarApi.addEvent({
+        id: uuidv4(),
+        title,
+        start: arg.startStr,
+        end: arg.endStr,
+        allDay: arg.allDay,
+      });
+    }
+  };
+
+  const handleEventClick = (clickInfo: EventClickArg) => {
+    // clickInfo.event.remove();
+  };
+
   return (
     <div className="m-auto w-1/2 mb-10">
       {/* 첫번째 영역 */}
@@ -24,7 +51,7 @@ export default function Home() {
             <div key={i} className="relative h-auto">
               <div>
                 <Image
-                  src={'/example.svg'}
+                  src={"/example.svg"}
                   alt="책 이미지"
                   width={300}
                   height={300}
@@ -42,7 +69,7 @@ export default function Home() {
           <p className="font-nanumMyungjo text-3xl text-center">
             오늘의 일상 공유
           </p>
-          <Button variant={'outline'} className="absolute right-0 top-0">
+          <Button variant={"outline"} className="absolute right-0 top-0">
             공유하기
           </Button>
         </div>
@@ -51,7 +78,7 @@ export default function Home() {
           {Array.from({ length: 3 }, (_, i) => (
             <div key={i}>
               <Image
-                src={'/example2.svg'}
+                src={"/example2.svg"}
                 alt="공유 이미지"
                 width={300}
                 height={300}
@@ -68,13 +95,31 @@ export default function Home() {
                   <span className="ml-2">by 닉네임</span>
                 </div>
                 <div className="flex items-center">
-                  <Image src={'/love.svg'} width={20} height={20} alt="찜" />
+                  <Image src={"/love.svg"} width={20} height={20} alt="찜" />
                   <span className="ml-1">4</span>
                 </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+      {/* 네번째 영역 */}
+      <div className="mt-40">
+        <FullCalendar
+          editable
+          selectable
+          contentHeight={450}
+          headerToolbar={{
+            start: "prevYear prev",
+            center: "title",
+            end: "next nextYear",
+          }}
+          plugins={[daygridPlugin, interactionPlugins]}
+          initialView="dayGridMonth"
+          locale={"ko"}
+          select={handleDateClick}
+          eventClick={handleEventClick}
+        />
       </div>
     </div>
   );

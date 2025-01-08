@@ -1,0 +1,37 @@
+.fc {
+  font-family: var(--font-nanumPen);
+}
+.fc .fc-day-sun a {
+  color: red;
+}
+.fc .fc-day-sat a {
+  color: blue;
+}
+
+.fc-h-event {
+  border: none;
+  background-color: transparent;
+  text-align: right;
+}
+.fc-event-title {
+  color: black;
+  font-size: 16px;
+}
+
+.fc .fc-button-primary {
+  background-color: transparent;
+  border: none;
+  color: black;
+}
+
+.fc .fc-daygrid-day-frame {
+  cursor: pointer;
+}
+
+.fc .fc-day-other .fc-event-title {
+  opacity: 30%;
+}
+
+.fc .fc-daygrid-day-number {
+  font-size: 18px;
+}
