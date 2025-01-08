@@ -1,16 +1,17 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import FullCalendar from "@fullcalendar/react";
-import Image from "next/image";
-import daygridPlugin from "@fullcalendar/daygrid";
-import "./calendar.css";
-import interactionPlugins from "@fullcalendar/interaction";
-import { DateSelectArg, EventClickArg } from "@fullcalendar/core/index.js";
-import { v4 as uuidv4 } from "uuid";
+'use client';
+import { Button } from '@/components/ui/button';
+import FullCalendar from '@fullcalendar/react';
+import Image from 'next/image';
+import daygridPlugin from '@fullcalendar/daygrid';
+import './calendar.css';
+import interactionPlugins from '@fullcalendar/interaction';
+import { DateSelectArg, EventClickArg } from '@fullcalendar/core/index.js';
+import { v4 as uuidv4 } from 'uuid';
+import { useEffect } from 'react';
 
 export default function Home() {
   const handleDateClick = (arg: DateSelectArg) => {
-    let title = prompt("일정을 적어주세요");
+    let title = prompt('일정을 적어주세요');
     let calendarApi = arg.view.calendar;
     calendarApi.unselect();
 
@@ -28,6 +29,30 @@ export default function Home() {
   const handleEventClick = (clickInfo: EventClickArg) => {
     // clickInfo.event.remove();
   };
+
+  // useEffect(() => {
+  //   getBook();
+  // }, []);
+  // const getBook = async () => {
+  //   try {
+  //     const res = await fetch(
+  //       `/v1/search/book.json?query='힐링'&display=10&start=1`,
+  //       {
+  //         method: 'GET',
+  //         headers: {
+  //           'X-Naver-Client-Id': process.env.NEXT_PUBLIC_NAVER_CLIENT_ID || '',
+  //           'X-Naver-Client-Secret':
+  //             process.env.NEXT_PUBLIC_NAVER_CLIENT_SECRET || '',
+  //         },
+  //       },
+  //     );
+
+  //     const { items } = await res.json();
+  //     console.log('data ', items);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   return (
     <div className="m-auto w-1/2 mb-10">
@@ -51,7 +76,7 @@ export default function Home() {
             <div key={i} className="relative h-auto">
               <div>
                 <Image
-                  src={"/example.svg"}
+                  src={'/example.svg'}
                   alt="책 이미지"
                   width={300}
                   height={300}
@@ -69,7 +94,7 @@ export default function Home() {
           <p className="font-nanumMyungjo text-3xl text-center">
             오늘의 일상 공유
           </p>
-          <Button variant={"outline"} className="absolute right-0 top-0">
+          <Button variant={'outline'} className="absolute right-0 top-0">
             공유하기
           </Button>
         </div>
@@ -78,7 +103,7 @@ export default function Home() {
           {Array.from({ length: 3 }, (_, i) => (
             <div key={i}>
               <Image
-                src={"/example2.svg"}
+                src={'/example2.svg'}
                 alt="공유 이미지"
                 width={300}
                 height={300}
@@ -95,7 +120,7 @@ export default function Home() {
                   <span className="ml-2">by 닉네임</span>
                 </div>
                 <div className="flex items-center">
-                  <Image src={"/love.svg"} width={20} height={20} alt="찜" />
+                  <Image src={'/love.svg'} width={20} height={20} alt="찜" />
                   <span className="ml-1">4</span>
                 </div>
               </div>
@@ -110,13 +135,13 @@ export default function Home() {
           selectable
           contentHeight={450}
           headerToolbar={{
-            start: "prevYear prev",
-            center: "title",
-            end: "next nextYear",
+            start: 'prevYear prev',
+            center: 'title',
+            end: 'next nextYear',
           }}
           plugins={[daygridPlugin, interactionPlugins]}
           initialView="dayGridMonth"
-          locale={"ko"}
+          locale={'ko'}
           select={handleDateClick}
           eventClick={handleEventClick}
         />
