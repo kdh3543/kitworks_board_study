@@ -7,10 +7,11 @@ import './calendar.css';
 import interactionPlugins from '@fullcalendar/interaction';
 import { DateSelectArg, EventClickArg } from '@fullcalendar/core/index.js';
 import { v4 as uuidv4 } from 'uuid';
-import { useEffect } from 'react';
 import HeadBanner from '@/components/HeadBanner';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
   const handleDateClick = (arg: DateSelectArg) => {
     let title = prompt('일정을 적어주세요');
     let calendarApi = arg.view.calendar;
@@ -82,7 +83,11 @@ export default function Home() {
       <div className="mt-40">
         <div className="relative">
           <p className="font-nanumMyungjo text-3xl text-center">today's blog</p>
-          <Button variant={'outline'} className="absolute right-0 top-0">
+          <Button
+            variant={'outline'}
+            className="absolute right-0 top-0"
+            onClick={() => router.push('/today')}
+          >
             공유하기
           </Button>
         </div>
@@ -118,7 +123,7 @@ export default function Home() {
       </div>
       {/* 네번째 영역 */}
       <div className="mt-40">
-        <p className="font-nanumMyungjo text-3xl text-center">today's memory</p>{' '}
+        <p className="font-nanumMyungjo text-3xl text-center">today's memory</p>
         <div className="mt-10">
           <FullCalendar
             editable
@@ -134,6 +139,11 @@ export default function Home() {
             locale={'ko'}
             select={handleDateClick}
             eventClick={handleEventClick}
+            selectAllow={(selectInfo) => {
+              const isSingleDay =
+                selectInfo.start.getDate() === selectInfo.end.getDate() - 1;
+              return isSingleDay;
+            }}
           />
         </div>
       </div>

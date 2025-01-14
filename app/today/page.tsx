@@ -13,6 +13,7 @@ export default function page() {
               <Image
                 src={'/example2.svg'}
                 alt="공유 이미지"
+                className="sm:w-full"
                 width={300}
                 height={300}
               />
