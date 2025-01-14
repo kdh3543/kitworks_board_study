@@ -3,10 +3,11 @@ import './globals.css';
 import NavBar from '@/components/NavBar';
 import { nanumMyungjo, nanumPen } from './font';
 
-import Modal from '@/components/Modal';
+import LoginModal from '@/components/LoginModal';
+import SignUpModal from '@/components/SignUpModal';
 
 export const metadata: Metadata = {
-  title: '오늘의 기록',
+  title: 'today`s log',
 };
 
 export default function RootLayout({
@@ -17,7 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${nanumMyungjo.variable} ${nanumPen.variable}`}>
       <body>
-        <Modal />
+        <LoginModal />
+        <SignUpModal />
         <NavBar />
         {children}
       </body>

@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import { nanumMyungjo } from './app/font';
+import { inter, nanumMyungjo } from './app/font';
 
 export default {
   darkMode: ['class'],
@@ -14,6 +14,7 @@ export default {
       fontFamily: {
         nanumMyungjo: ['var(--font-nanumMyungjo)', 'sans-serif'],
         nanumPen: ['var(--font-nanumPen)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

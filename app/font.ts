@@ -1,4 +1,4 @@
-import { Nanum_Pen_Script, Nanum_Myeongjo } from 'next/font/google';
+import { Nanum_Pen_Script, Nanum_Myeongjo, Inter } from 'next/font/google';
 
 export const nanumPen = Nanum_Pen_Script({
   preload: false,
@@ -12,4 +12,11 @@ export const nanumMyungjo = Nanum_Myeongjo({
   subsets: ['latin'],
   weight: ['400', '700', '800'],
   variable: '--font-nanumMyungjo',
+});
+
+export const inter = Inter({
+  preload: false,
+  subsets: ['latin'],
+  weight: ['400', '700', '800'],
+  variable: '--font-inter',
 });

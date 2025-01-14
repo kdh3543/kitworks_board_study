@@ -8,6 +8,7 @@ import interactionPlugins from '@fullcalendar/interaction';
 import { DateSelectArg, EventClickArg } from '@fullcalendar/core/index.js';
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect } from 'react';
+import HeadBanner from '@/components/HeadBanner';
 
 export default function Home() {
   const handleDateClick = (arg: DateSelectArg) => {
@@ -56,21 +57,10 @@ export default function Home() {
 
   return (
     <div className="m-auto w-1/2 mb-10">
-      {/* 첫번째 영역 */}
-      <div className="mt-5">
-        <p className="font-nanumPen text-8xl">힐링 게시판, 오늘의 기록</p>
-        <p className="font-nanumMyungjo text-black text-opacity-30 text-6xl leading-snug mt-2">
-          행복을 즐겨야 할 시간은 지금이다.
-          <br />
-          행복을 즐겨야 할 장소는 여기다.
-        </p>
-        <p className="font-nanumMyungjo text-black text-opacity-15 text-5xl mt-2">
-          - 로버트 인젠솔
-        </p>
-      </div>
+      <HeadBanner />
       {/* 두번째 영역 */}
       <div className="mt-20 text-center">
-        <p className="font-nanumMyungjo text-3xl">오늘의 힐링북</p>
+        <p className="font-nanumMyungjo text-3xl">today's book</p>
         <div className="grid grid-cols-3 gap-5 mt-5">
           {Array.from({ length: 6 }, (_, i) => (
             <div key={i} className="relative h-auto">
@@ -91,9 +81,7 @@ export default function Home() {
       {/* 세번째 영역 */}
       <div className="mt-40">
         <div className="relative">
-          <p className="font-nanumMyungjo text-3xl text-center">
-            오늘의 일상 공유
-          </p>
+          <p className="font-nanumMyungjo text-3xl text-center">today's blog</p>
           <Button variant={'outline'} className="absolute right-0 top-0">
             공유하기
           </Button>
@@ -130,21 +118,24 @@ export default function Home() {
       </div>
       {/* 네번째 영역 */}
       <div className="mt-40">
-        <FullCalendar
-          editable
-          selectable
-          contentHeight={450}
-          headerToolbar={{
-            start: 'prevYear prev',
-            center: 'title',
-            end: 'next nextYear',
-          }}
-          plugins={[daygridPlugin, interactionPlugins]}
-          initialView="dayGridMonth"
-          locale={'ko'}
-          select={handleDateClick}
-          eventClick={handleEventClick}
-        />
+        <p className="font-nanumMyungjo text-3xl text-center">today's memory</p>{' '}
+        <div className="mt-10">
+          <FullCalendar
+            editable
+            selectable
+            contentHeight={450}
+            headerToolbar={{
+              start: 'prevYear prev',
+              center: 'title',
+              end: 'next nextYear',
+            }}
+            plugins={[daygridPlugin, interactionPlugins]}
+            initialView="dayGridMonth"
+            locale={'ko'}
+            select={handleDateClick}
+            eventClick={handleEventClick}
+          />
+        </div>
       </div>
     </div>
   );
