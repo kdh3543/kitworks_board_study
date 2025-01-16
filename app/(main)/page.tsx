@@ -13,8 +13,8 @@ import { useRouter } from 'next/navigation';
 export default function Home() {
   const router = useRouter();
   const handleDateClick = (arg: DateSelectArg) => {
-    let title = prompt('일정을 적어주세요');
-    let calendarApi = arg.view.calendar;
+    const title = prompt('일정을 적어주세요');
+    const calendarApi = arg.view.calendar;
     calendarApi.unselect();
 
     if (title) {
@@ -29,6 +29,7 @@ export default function Home() {
   };
 
   const handleEventClick = (clickInfo: EventClickArg) => {
+    console.log(clickInfo);
     // clickInfo.event.remove();
   };
 
@@ -61,7 +62,7 @@ export default function Home() {
       <HeadBanner />
       {/* 두번째 영역 */}
       <div className="mt-20 text-center">
-        <p className="font-nanumMyungjo text-3xl">today's book</p>
+        <p className="font-nanumMyungjo text-3xl">today&apos;s book</p>
         <div className="grid grid-cols-3 gap-5 mt-5">
           {Array.from({ length: 6 }, (_, i) => (
             <div key={i} className="relative h-auto">
@@ -82,7 +83,9 @@ export default function Home() {
       {/* 세번째 영역 */}
       <div className="mt-40">
         <div className="relative">
-          <p className="font-nanumMyungjo text-3xl text-center">today's blog</p>
+          <p className="font-nanumMyungjo text-3xl text-center">
+            today&apos;s blog
+          </p>
           <Button
             variant={'outline'}
             className="absolute right-0 top-0"
@@ -123,7 +126,9 @@ export default function Home() {
       </div>
       {/* 네번째 영역 */}
       <div className="mt-40">
-        <p className="font-nanumMyungjo text-3xl text-center">today's memory</p>
+        <p className="font-nanumMyungjo text-3xl text-center">
+          today&apos;s memory
+        </p>
         <div className="mt-10">
           <FullCalendar
             editable

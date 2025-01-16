@@ -16,7 +16,7 @@ export default function NavBar() {
         className="text-4xl font-nanumPen cursor-pointer"
         onClick={() => router.push('/')}
       >
-        today's log
+        today&apos;s log
       </span>
       <Button variant={'outline'} onClick={() => setLoginModal(!loginModal)}>
         로그인
