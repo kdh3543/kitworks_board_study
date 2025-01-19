@@ -1,37 +1,14 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import FullCalendar from '@fullcalendar/react';
 import Image from 'next/image';
-import daygridPlugin from '@fullcalendar/daygrid';
 import './calendar.css';
-import interactionPlugins from '@fullcalendar/interaction';
-import { DateSelectArg, EventClickArg } from '@fullcalendar/core/index.js';
 import { v4 as uuidv4 } from 'uuid';
 import HeadBanner from '@/components/HeadBanner';
 import { useRouter } from 'next/navigation';
+import Calendar from '@/components/Calendar';
 
 export default function Home() {
   const router = useRouter();
-  const handleDateClick = (arg: DateSelectArg) => {
-    const title = prompt('일정을 적어주세요');
-    const calendarApi = arg.view.calendar;
-    calendarApi.unselect();
-
-    if (title) {
-      calendarApi.addEvent({
-        id: uuidv4(),
-        title,
-        start: arg.startStr,
-        end: arg.endStr,
-        allDay: arg.allDay,
-      });
-    }
-  };
-
-  const handleEventClick = (clickInfo: EventClickArg) => {
-    console.log(clickInfo);
-    // clickInfo.event.remove();
-  };
 
   // useEffect(() => {
   //   getBook();
@@ -130,26 +107,7 @@ export default function Home() {
           today&apos;s memory
         </p>
         <div className="mt-10">
-          <FullCalendar
-            editable
-            selectable
-            contentHeight={450}
-            headerToolbar={{
-              start: 'prevYear prev',
-              center: 'title',
-              end: 'next nextYear',
-            }}
-            plugins={[daygridPlugin, interactionPlugins]}
-            initialView="dayGridMonth"
-            locale={'ko'}
-            select={handleDateClick}
-            eventClick={handleEventClick}
-            selectAllow={(selectInfo) => {
-              const isSingleDay =
-                selectInfo.start.getDate() === selectInfo.end.getDate() - 1;
-              return isSingleDay;
-            }}
-          />
+          <Calendar />
         </div>
       </div>
     </div>
