@@ -58,7 +58,7 @@ export default function Home() {
   // };
 
   return (
-    <div className="m-auto w-1/2 mb-10">
+    <div className="m-auto w-1/2 mb-10 sm:w-full md:w-1/2">
       <HeadBanner />
       {/* 두번째 영역 */}
       <div className="mt-20 text-center">

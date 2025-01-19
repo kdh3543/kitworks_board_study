@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import { inter, nanumMyungjo } from './app/font';
 
 export default {
   darkMode: ['class'],

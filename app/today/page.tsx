@@ -1,10 +1,15 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import HeadBanner from '@/components/HeadBanner';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 export default function page() {
+  const router = useRouter();
+
   return (
-    <div className="m-auto w-1/2 mb-10">
+    <div className="m-auto w-1/2 mb-10 sm:w-full md:w-1/2">
       <HeadBanner />
       <div className="sm:w-full">
         <div className="mt-5">
@@ -39,6 +44,13 @@ export default function page() {
           ))}
         </div>
       </div>
+      <Button
+        onClick={() => router.push('/today/register')}
+        variant={'outline'}
+        className="fixed bottom-10 right-5"
+      >
+        공유하기
+      </Button>
     </div>
   );
 }

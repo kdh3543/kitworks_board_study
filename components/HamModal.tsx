@@ -1,11 +1,40 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import useModalStore from '@/store/useModalStore';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function HamModal() {
   const { hamModal, setHamModal, setLoginModal, setSignUpModal } =
     useModalStore();
+  const [pathName, setPathName] = useState('');
+  const menuList = [
+    {
+      link: '/',
+      value: 'main',
+    },
+    {
+      link: '/today',
+      value: 'blog',
+    },
+    {
+      link: '/diary',
+      value: 'memory',
+    },
+  ];
+
+  const router = useRouter();
+  const path = usePathname();
+  useEffect(() => {
+    if (path) {
+      setPathName(path);
+    }
+  }, [path]);
+
+  const moveToLink = (link: string) => {
+    router.push(link);
+    setHamModal(false);
+  };
 
   return (
     <>
@@ -28,9 +57,17 @@ export default function HamModal() {
               <Button variant={'ghost'} onClick={() => setLoginModal(true)}>
                 로그인
               </Button>
-              <Button variant={'ghost'}>main</Button>
-              <Button variant={'ghost'}>blog</Button>
-              <Button variant={'ghost'}>memory</Button>
+              {menuList.map(({ link, value }) => (
+                <Button
+                  className={link === path ? 'text-[#A52A2A]' : ''}
+                  key={link}
+                  disabled={link === path}
+                  variant={'ghost'}
+                  onClick={() => moveToLink(link)}
+                >
+                  {value}
+                </Button>
+              ))}
               <Button
                 variant={'ghost'}
                 onClick={() => setSignUpModal(true)}
