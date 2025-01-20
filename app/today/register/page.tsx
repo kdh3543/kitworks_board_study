@@ -1,7 +1,7 @@
-'use client';
-import Tiptap from '@/components/Tiptap';
-import { Input } from '@/components/ui/input';
-import React from 'react';
+"use client";
+import Tiptap from "@/components/Tiptap";
+import { Input } from "@/components/ui/input";
+import React from "react";
 
 export default function page() {
   return (
@@ -10,7 +10,7 @@ export default function page() {
       <div className="w-4/5 h-[30%] m-auto flex items-end">
         <Input
           placeholder="제목을 입력해주세요."
-          className="w-full text-4xl md:text-4xl font-inter border-none "
+          className="w-full text-4xl md:text-4xl font-inter border-none"
         />
       </div>
       <hr className="my-10" />

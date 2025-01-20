@@ -1,11 +1,11 @@
-'use client';
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-import './calendar.css';
-import { v4 as uuidv4 } from 'uuid';
-import HeadBanner from '@/components/HeadBanner';
-import { useRouter } from 'next/navigation';
-import Calendar from '@/components/Calendar';
+"use client";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import "./calendar.css";
+import { v4 as uuidv4 } from "uuid";
+import HeadBanner from "@/components/HeadBanner";
+import { useRouter } from "next/navigation";
+import Calendar from "@/components/Calendar";
 
 export default function Home() {
   const router = useRouter();
@@ -45,7 +45,7 @@ export default function Home() {
             <div key={i} className="relative h-auto">
               <div>
                 <Image
-                  src={'/example.svg'}
+                  src={"/example.svg"}
                   alt="책 이미지"
                   width={300}
                   height={300}
@@ -64,9 +64,9 @@ export default function Home() {
             today&apos;s blog
           </p>
           <Button
-            variant={'outline'}
+            variant={"outline"}
             className="absolute right-0 top-0"
-            onClick={() => router.push('/today')}
+            onClick={() => router.push("/today")}
           >
             공유하기
           </Button>
@@ -76,7 +76,7 @@ export default function Home() {
           {Array.from({ length: 3 }, (_, i) => (
             <div key={i}>
               <Image
-                src={'/example2.svg'}
+                src={"/example2.svg"}
                 alt="공유 이미지"
                 width={300}
                 height={300}
@@ -93,7 +93,7 @@ export default function Home() {
                   <span className="ml-2">by 닉네임</span>
                 </div>
                 <div className="flex items-center">
-                  <Image src={'/love.svg'} width={20} height={20} alt="찜" />
+                  <Image src={"/love.svg"} width={20} height={20} alt="찜" />
                   <span className="ml-1">4</span>
                 </div>
               </div>
