@@ -5,7 +5,7 @@ import React from "react";
 
 export default function page() {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full transform animate-fadein">
       {/* title */}
       <div className="w-4/5 h-[30%] m-auto flex items-end">
         <Input

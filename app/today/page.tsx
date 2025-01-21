@@ -1,22 +1,22 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
-import HeadBanner from '@/components/HeadBanner';
-import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
+"use client";
+import React from "react";
+import Image from "next/image";
+import HeadBanner from "@/components/HeadBanner";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function page() {
   const router = useRouter();
 
   return (
-    <div className="m-auto w-1/2 mb-10 sm:w-full md:w-1/2">
+    <div className="m-auto w-1/2 mb-10 sm:w-full md:w-1/2 animate-fadein">
       <HeadBanner />
       <div className="sm:w-full">
         <div className="mt-5">
           {Array.from({ length: 10 }, (_, i) => (
             <div key={i} className="md:flex mt-10">
               <Image
-                src={'/example2.svg'}
+                src={"/example2.svg"}
                 alt="공유 이미지"
                 className="sm:w-full"
                 width={300}
@@ -35,7 +35,7 @@ export default function page() {
                     <span className="ml-2">by 닉네임</span>
                   </div>
                   <div className="flex items-center">
-                    <Image src={'/love.svg'} width={20} height={20} alt="찜" />
+                    <Image src={"/love.svg"} width={20} height={20} alt="찜" />
                     <span className="ml-1">4</span>
                   </div>
                 </div>
@@ -45,8 +45,8 @@ export default function page() {
         </div>
       </div>
       <Button
-        onClick={() => router.push('/today/register')}
-        variant={'outline'}
+        onClick={() => router.push("/today/register")}
+        variant={"outline"}
         className="fixed bottom-10 right-5"
       >
         공유하기
