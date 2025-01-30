@@ -25,7 +25,7 @@ export default function Modal() {
 
   return (
     <Dialog open={bookModal.state} onOpenChange={closeModal}>
-      <DialogContent className="w-[400px]">
+      <DialogContent className="sm:w-full max-w-[400px] mx-auto">
         <DialogHeader>
           <DialogTitle>{bookModal.title}</DialogTitle>
         </DialogHeader>
@@ -35,6 +35,11 @@ export default function Modal() {
             alt="책 이미지"
             width={300}
             height={300}
+            onError={(e) => {
+              e.currentTarget.src = "1.svg";
+            }}
+            quality={75}
+            loading="lazy"
           />
           <div className="text-left mt-5">
             <p className="text-[#808080]">{bookModal.description}</p>
