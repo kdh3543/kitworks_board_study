@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 /* 첫번째 영역 */
 export default function HeadBanner() {
   return (
-    <div className="mt-5">
+    <div className="mt-5 text-center md:text-left">
       <p className="font-nanumPen text-8xl">힐링 게시판, today&apos;s log</p>
       <p className="font-nanumMyungjo text-black text-opacity-30 text-6xl leading-snug mt-2">
         행복을 즐겨야 할 시간은 지금이다.
