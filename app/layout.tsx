@@ -6,6 +6,7 @@ import { nanumMyungjo, nanumPen } from "./font";
 import LoginModal from "@/components/LoginModal";
 import SignUpModal from "@/components/SignUpModal";
 import HamModal from "@/components/HamModal";
+import BookModal from "@/components/BookModal";
 
 export const metadata: Metadata = {
   title: "today`s log",
@@ -22,6 +23,7 @@ export default function RootLayout({
         <HamModal />
         <LoginModal />
         <SignUpModal />
+        <BookModal />
         <NavBar />
         {children}
       </body>

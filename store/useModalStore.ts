@@ -1,4 +1,5 @@
-import { create } from 'zustand';
+import { bookModalType } from "@/utils/type";
+import { create } from "zustand";
 
 interface modalStoreProps {
   loginModal: boolean;
@@ -7,6 +8,8 @@ interface modalStoreProps {
   setSignUpModal: (isOpened: boolean) => void;
   hamModal: boolean;
   setHamModal: (isOpened: boolean) => void;
+  bookModal: bookModalType;
+  setBookModal: (bookProps: bookModalType) => void;
 }
 
 const useModalStore = create<modalStoreProps>((set) => ({
@@ -16,6 +19,13 @@ const useModalStore = create<modalStoreProps>((set) => ({
   setSignUpModal: (isOpened) => set({ signUpModal: isOpened }),
   hamModal: false,
   setHamModal: (isOpened) => set({ hamModal: isOpened }),
+  bookModal: {
+    title: "",
+    description: "",
+    image: "",
+    state: false,
+  },
+  setBookModal: (props) => set({ bookModal: props }),
 }));
 
 export default useModalStore;

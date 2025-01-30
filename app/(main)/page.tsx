@@ -1,14 +1,16 @@
-'use client';
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-import './calendar.css';
+"use client";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import "./calendar.css";
 // import { v4 as uuidv4 } from "uuid";
-import HeadBanner from '@/components/HeadBanner';
-import { useRouter } from 'next/navigation';
-import Calendar from '@/components/Calendar';
+import HeadBanner from "@/components/HeadBanner";
+import { useRouter } from "next/navigation";
+import Calendar from "@/components/Calendar";
+import useModalStore from "@/store/useModalStore";
 
 export default function Home() {
   const router = useRouter();
+  const { setBookModal } = useModalStore();
 
   // useEffect(() => {
   //   getBook();
@@ -35,7 +37,7 @@ export default function Home() {
   // };
 
   return (
-    <div className="m-auto w-1/2 mb-10 sm:w-full md:w-1/2">
+    <div className="m-auto w-full mb-10 md:w-1/2 xl:w-1/2 animate-fadein">
       <HeadBanner />
       {/* 두번째 영역 */}
       <div className="mt-20 text-center">
@@ -45,11 +47,19 @@ export default function Home() {
             <div key={i} className="relative h-auto">
               <div>
                 <Image
-                  src={'/example.svg'}
+                  src={"/example.svg"}
                   alt="책 이미지"
                   width={300}
                   height={300}
-                  className="mx-auto"
+                  className="mx-auto cursor-pointer"
+                  onClick={() =>
+                    setBookModal({
+                      image: "/example.svg",
+                      title: "test",
+                      description: "test123",
+                      state: true,
+                    })
+                  }
                 />
                 <p className="mt-2 font-nanumMyungjo font-semibold">책 제목</p>
               </div>
@@ -64,11 +74,11 @@ export default function Home() {
             today&apos;s blog
           </p>
           <Button
-            variant={'outline'}
+            variant={"outline"}
             className="absolute right-0 top-0"
-            onClick={() => router.push('/today')}
+            onClick={() => router.push("/today")}
           >
-            공유하기
+            더 보기
           </Button>
         </div>
 
@@ -76,7 +86,7 @@ export default function Home() {
           {Array.from({ length: 3 }, (_, i) => (
             <div key={i}>
               <Image
-                src={'/example2.svg'}
+                src={"/example2.svg"}
                 alt="공유 이미지"
                 width={300}
                 height={300}
@@ -93,7 +103,7 @@ export default function Home() {
                   <span className="ml-2">by 닉네임</span>
                 </div>
                 <div className="flex items-center">
-                  <Image src={'/love.svg'} width={20} height={20} alt="찜" />
+                  <Image src={"/love.svg"} width={20} height={20} alt="찜" />
                   <span className="ml-1">4</span>
                 </div>
               </div>

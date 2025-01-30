@@ -9,16 +9,16 @@ export default function Today() {
   const router = useRouter();
 
   return (
-    <div className="m-auto w-1/2 mb-10 sm:w-full md:w-1/2 animate-fadein">
+    <div className="m-auto w-full mb-10 md:w-1/2 xl:w-1/2 animate-fadein">
       <HeadBanner />
-      <div className="sm:w-full">
+      <div>
         <div className="mt-5">
           {Array.from({ length: 10 }, (_, i) => (
-            <div key={i} className="md:flex mt-10">
+            <div key={i} className="xl:flex mt-10">
               <Image
                 src={"/example2.svg"}
                 alt="공유 이미지"
-                className="sm:w-full"
+                className="w-full"
                 width={300}
                 height={300}
               />
