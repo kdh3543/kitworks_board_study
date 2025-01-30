@@ -1,25 +1,25 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { Button } from './ui/button';
-import useModalStore from '@/store/useModalStore';
-import { usePathname, useRouter } from 'next/navigation';
+"use client";
+import React, { useEffect, useState } from "react";
+import { Button } from "./ui/button";
+import useModalStore from "@/store/useModalStore";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function HamModal() {
   const { hamModal, setHamModal, setLoginModal, setSignUpModal } =
     useModalStore();
-  const [pathName, setPathName] = useState('');
+  const [, setPathName] = useState("");
   const menuList = [
     {
-      link: '/',
-      value: 'main',
+      link: "/",
+      value: "main",
     },
     {
-      link: '/today',
-      value: 'blog',
+      link: "/today",
+      value: "blog",
     },
     {
-      link: '/diary',
-      value: 'memory',
+      link: "/diary",
+      value: "memory",
     },
   ];
 
@@ -41,35 +41,35 @@ export default function HamModal() {
       <div
         className={`fixed top-0 w-full h-full z-10 bg-black/40 
           backdrop-blur-md text-center p-40 font-semibold transform
-          ${hamModal ? 'translate-y-0' : 'translate-y-full'}
+          ${hamModal ? "translate-y-0" : "translate-y-full"}
           transition-transform duration-1000 ease-in-out`}
       >
         {hamModal && (
           <>
             <Button
-              variant={'ghost'}
+              variant={"ghost"}
               className="absolute right-10 top-10 hover:bg-transparent"
               onClick={() => setHamModal(false)}
             >
               X
             </Button>
             <div className="relative w-full h-full flex flex-col gap-10 ">
-              <Button variant={'ghost'} onClick={() => setLoginModal(true)}>
+              <Button variant={"ghost"} onClick={() => setLoginModal(true)}>
                 로그인
               </Button>
               {menuList.map(({ link, value }) => (
                 <Button
-                  className={link === path ? 'text-[#A52A2A]' : ''}
+                  className={link === path ? "text-[#A52A2A]" : ""}
                   key={link}
                   disabled={link === path}
-                  variant={'ghost'}
+                  variant={"ghost"}
                   onClick={() => moveToLink(link)}
                 >
                   {value}
                 </Button>
               ))}
               <Button
-                variant={'ghost'}
+                variant={"ghost"}
                 onClick={() => setSignUpModal(true)}
                 className="absolute bottom-10 w-full"
               >

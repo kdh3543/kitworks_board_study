@@ -3,7 +3,7 @@ import Tiptap from "@/components/Tiptap";
 import { Input } from "@/components/ui/input";
 import React from "react";
 
-export default function page() {
+export default function Register() {
   return (
     <div className="w-full h-full transform animate-fadein">
       {/* title */}

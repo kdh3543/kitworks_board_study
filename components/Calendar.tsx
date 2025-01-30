@@ -5,7 +5,7 @@ const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
 
-  const getDaysInMonth = (year: any, month: any) => {
+  const getDaysInMonth = (year: number, month: number) => {
     return new Date(year, month + 1, 0).getDate();
   };
 
@@ -30,12 +30,10 @@ const Calendar = () => {
   const renderDays = () => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
-    const date = currentDate.getDay();
-    console.log('date ', currentDate);
+    // const date = currentDate.getDay();
 
     const total = 42;
     const days = [];
-
     const prevDaysInMonth = getDaysInMonth(year, month - 1);
 
     if (startDayOfMonth !== 6) {

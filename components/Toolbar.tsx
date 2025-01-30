@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
-import { type Editor } from "@tiptap/react";
-import { Button } from "./ui/button";
+import React from 'react';
+import { type Editor } from '@tiptap/react';
+import { Button } from './ui/button';
 
 type Props = {
   editor: Editor | null;
@@ -23,7 +23,7 @@ export default function Toolbar({ editor }: Props) {
             editor.chain().focus().toggleHeading({ level: 1 }).run()
           }
           className={`tiptap-btn ${
-            editor.isActive("heading", { level: 1 }) ? "h-active" : "h-stop"
+            editor.isActive('heading', { level: 1 }) ? 'h-active' : 'h-stop'
           }
             `}
         >
@@ -34,7 +34,7 @@ export default function Toolbar({ editor }: Props) {
             editor.chain().focus().toggleHeading({ level: 2 }).run()
           }
           className={`tiptap-btn ${
-            editor.isActive("heading", { level: 2 }) ? "h-active" : "h-stop"
+            editor.isActive('heading', { level: 2 }) ? 'h-active' : 'h-stop'
           }
             `}
         >
@@ -45,7 +45,7 @@ export default function Toolbar({ editor }: Props) {
             editor.chain().focus().toggleHeading({ level: 3 }).run()
           }
           className={`tiptap-btn ${
-            editor.isActive("heading", { level: 3 }) ? "h-active" : "h-stop"
+            editor.isActive('heading', { level: 3 }) ? 'h-active' : 'h-stop'
           }
             `}
         >
@@ -54,7 +54,7 @@ export default function Toolbar({ editor }: Props) {
         <Button
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={`tiptap-btn ${
-            editor.isActive("bold") ? "h-active" : "text-black"
+            editor.isActive('bold') ? 'h-active' : 'text-black'
           }
             `}
         >
@@ -66,17 +66,17 @@ export default function Toolbar({ editor }: Props) {
             editor
               .chain()
               .focus()
-              .setColor(event?.target?.value || "")
+              .setColor(event?.target?.value || '')
               .run()
           }
-          value={editor.getAttributes("textStyle").color || "#000000"}
+          value={editor.getAttributes('textStyle').color || '#000000'}
           data-testid="setColor"
           className="w-[30px] h-[30px] cursor-pointer"
         />
         <Button
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={`tiptap-btn ${
-            editor.isActive("bulletList") ? "h-active" : "text-black"
+            editor.isActive('bulletList') ? 'h-active' : 'text-black'
           }
             `}
         >
@@ -85,7 +85,7 @@ export default function Toolbar({ editor }: Props) {
         <Button
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={`tiptap-btn ${
-            editor.isActive("orderedList") ? "h-active" : "text-black"
+            editor.isActive('orderedList') ? 'h-active' : 'text-black'
           }
             `}
         >
@@ -94,7 +94,7 @@ export default function Toolbar({ editor }: Props) {
         <Button
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
           className={`tiptap-btn ${
-            editor.isActive("codeBlock") ? "h-active" : "text-black"
+            editor.isActive('codeBlock') ? 'h-active' : 'text-black'
           }
             `}
         >

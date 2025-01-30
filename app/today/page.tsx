@@ -5,7 +5,7 @@ import HeadBanner from "@/components/HeadBanner";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
-export default function page() {
+export default function Today() {
   const router = useRouter();
 
   return (
