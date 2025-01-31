@@ -68,20 +68,19 @@ export default function Home() {
         </div>
       </div>
       {/* 세번째 영역 */}
-      <div className="mt-40">
-        <div className="relative">
+      <div className="mt-40 relative">
+        <div>
           <p className="font-nanumMyungjo text-3xl text-center">
             today&apos;s blog
           </p>
-          <Button
-            variant={"outline"}
-            className="absolute right-0 top-0"
-            onClick={() => router.push("/today")}
-          >
-            더 보기
-          </Button>
         </div>
-
+        <Button
+          variant={"outline"}
+          className="absolute right-0 top-0"
+          onClick={() => router.push("/today")}
+        >
+          더 보기
+        </Button>
         <div className="grid grid-cols-3 mt-5 gap-5">
           {Array.from({ length: 3 }, (_, i) => (
             <div key={i}>

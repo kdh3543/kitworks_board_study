@@ -7,6 +7,7 @@ import LoginModal from "@/components/LoginModal";
 import SignUpModal from "@/components/SignUpModal";
 import HamModal from "@/components/HamModal";
 import BookModal from "@/components/BookModal";
+import DiaryModal from "@/components/DiaryModal";
 
 export const metadata: Metadata = {
   title: "today`s log",
@@ -24,6 +25,7 @@ export default function RootLayout({
         <LoginModal />
         <SignUpModal />
         <BookModal />
+        <DiaryModal />
         <NavBar />
         {children}
       </body>
