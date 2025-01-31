@@ -12,15 +12,10 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 
 export default function Modal() {
-  const { bookModal, setBookModal } = useModalStore();
+  const { bookModal, resetBookModal } = useModalStore();
 
   const closeModal = () => {
-    setBookModal({
-      title: "",
-      description: "",
-      state: false,
-      image: "",
-    });
+    resetBookModal();
   };
 
   return (
