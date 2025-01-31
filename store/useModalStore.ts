@@ -48,13 +48,11 @@ const useModalStore = create<modalStoreProps>((set) => ({
   setSignUpModal: (isOpened) => set({ signUpModal: isOpened }),
   hamModal: false,
   setHamModal: (isOpened) => set({ hamModal: isOpened }),
-  ...bookInitData,
   bookModal: bookInitData,
   setBookModal: (bookModalData) => set({ bookModal: bookModalData }),
   resetBookModal: () => {
     set({ bookModal: bookInitData });
   },
-  ...diaryInitData,
   diaryModal: diaryInitData,
   setDiaryModal: (diaryModalData) => set({ diaryModal: diaryModalData }),
   resetDiaryModal: () => {
