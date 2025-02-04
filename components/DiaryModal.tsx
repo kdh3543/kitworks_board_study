@@ -4,6 +4,7 @@ import React from "react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -24,9 +25,12 @@ export default function Modal() {
         <DialogHeader>
           <DialogTitle>today&apos;s memory</DialogTitle>
         </DialogHeader>
+
         <div className="my-5 w-full min-h-[200px]">
           <div className="h-[15%] bg-[#80808050] flex items-center pl-1 font-semibold">
-            <span>{diaryModal.date}</span>
+            <span>{`${diaryModal.date.getFullYear()}. ${
+              diaryModal.date.getMonth() + 1
+            }. ${diaryModal.date.getDate()}`}</span>
           </div>
           <div className="h-[85%]">
             <Textarea

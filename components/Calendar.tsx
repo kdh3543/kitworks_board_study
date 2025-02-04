@@ -1,19 +1,18 @@
 import useModalStore from "@/store/useModalStore";
 import React, { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { GiCheckMark } from "react-icons/gi";
 
 export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
   const { setDiaryModal } = useModalStore();
-  const content =
-    "여긴 내용임 여긴 내용임여긴 내용임여긴 내용여긴 내용임여긴 내용임여긴 내용임여긴 내용여긴 내용임여긴 내용임여긴 내용임여긴 내용여긴 내용임여긴 내용임여긴 내용임여긴 내용";
-  const date = "2024. 11. 21";
 
-  const openDiaryModal = (id: number) => {
+  const openDiaryModal = (date: Date, i: number) => {
+    date.setDate(i);
     setDiaryModal({
       state: true,
-      content: content + id,
+      content: "",
       date,
     });
   };
@@ -25,18 +24,18 @@ export default function Calendar() {
   const startDayOfMonth = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth(),
-    1
+    1,
   ).getDay();
 
   const prevMonth = () => {
     setCurrentDate(
-      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1)
+      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1),
     );
   };
 
   const nextMonth = () => {
     setCurrentDate(
-      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1),
     );
   };
 
@@ -49,14 +48,14 @@ export default function Calendar() {
     const days = [];
     const prevDaysInMonth = getDaysInMonth(year, month - 1);
     const commonStyle =
-      "border-[#ddd] border h-20 p-1 flex justify-end items-baseline cursor-pointer";
+      "border-[#ddd] border h-20 p-1 flex items-baseline cursor-pointer";
 
     if (startDayOfMonth !== 6) {
       for (let i = startDayOfMonth; i >= 0; i--) {
         days.push(
           <div className={`${commonStyle} opacity-40`} key={`prev-${i}`}>
             {prevDaysInMonth - i}일
-          </div>
+          </div>,
         );
       }
     }
@@ -69,12 +68,15 @@ export default function Calendar() {
             year + month === realDate.getFullYear() + realDate.getMonth() &&
             realDate.getDate() === i &&
             "bg-yellow-200"
-          } ${commonStyle} hover:bg-gray-200`}
+          } ${commonStyle} hover:bg-gray-200 relative`}
           key={`current-${i}`}
-          onClick={() => openDiaryModal(i)}
+          onClick={() => openDiaryModal(currentDate, i)}
         >
+          {i === realDate.getDate() && (
+            <GiCheckMark className="absolute right-1 top-1 text-sm text-green-500" />
+          )}
           {i}일
-        </div>
+        </div>,
       );
     }
 
@@ -90,7 +92,7 @@ export default function Calendar() {
       days.push(
         <div className={`${commonStyle} opacity-40`} key={`next-${i}`}>
           {i}일
-        </div>
+        </div>,
       );
     }
 

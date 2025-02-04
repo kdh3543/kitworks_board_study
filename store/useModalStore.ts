@@ -9,7 +9,7 @@ interface BookModalType {
 
 interface DiaryModalType {
   state: boolean;
-  date: string;
+  date: Date;
   content?: string;
 }
 
@@ -37,7 +37,7 @@ const bookInitData: BookModalType = {
 
 const diaryInitData: DiaryModalType = {
   state: false,
-  date: "",
+  date: new Date(),
   content: "",
 };
 
