@@ -76,6 +76,7 @@ export default function Home() {
         </div>
         <Button
           variant={"outline"}
+          size={"sm"}
           className="absolute right-0 top-0"
           onClick={() => router.push("/today")}
         >
@@ -111,11 +112,19 @@ export default function Home() {
         </div>
       </div>
       {/* 네번째 영역 */}
-      <div className="mt-40">
+      <div className="mt-40 relative">
         <p className="font-nanumMyungjo text-3xl text-center">
           today&apos;s memory
         </p>
-        <div className="mt-10">
+        <Button
+          variant={"outline"}
+          size={"sm"}
+          className="absolute right-0 top-0"
+          onClick={() => router.push("/diary")}
+        >
+          더 보기
+        </Button>
+        <div>
           <Calendar />
         </div>
       </div>

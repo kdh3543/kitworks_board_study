@@ -13,7 +13,7 @@ export default function Diary() {
     setDiaryModal({
       state: true,
       content: content + id,
-      date,
+      date: new Date(),
     });
   };
   return (

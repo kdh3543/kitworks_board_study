@@ -28,8 +28,8 @@ export default function Modal() {
           <Image
             src={bookModal?.image || "1.svg"}
             alt="책 이미지"
-            width={300}
-            height={300}
+            width={250}
+            height={250}
             onError={(e) => {
               e.currentTarget.src = "1.svg";
             }}
