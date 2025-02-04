@@ -9,11 +9,12 @@ export default function Calendar() {
   const { setDiaryModal } = useModalStore();
 
   const openDiaryModal = (date: Date, i: number) => {
-    date.setDate(i);
+    const newDate = new Date(date); // 불변성을 위해 새로운 Date 객체 생성 후 수정
+    newDate.setDate(i);
     setDiaryModal({
       state: true,
       content: "",
-      date,
+      date: newDate,
     });
   };
 
