@@ -1,0 +1,60 @@
+@keyframes meteor {
+  0% {
+    top: -10vh;
+    transform: translateX(70px);
+    opacity: 1;
+  }
+  100% {
+    top: 20vh;
+    transform: translateX(-20vh);
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 56px;
+  border-radius: 50px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.star {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #ffff0090;
+  box-shadow: 0px 0px 8px 2px #c77eff;
+  position: absolute;
+}
+
+.star1 {
+  animation: meteor 5s infinite;
+  right: 35px;
+}
+.star2 {
+  animation: meteor 7s infinite;
+  right: 20px;
+}
+.star3 {
+  animation: meteor 3s infinite;
+  right: 5px;
+}
+.star4 {
+  animation: meteor 2s infinite;
+  right: 25px;
+}
+
+.star::after {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: -950%;
+  width: 2000%;
+  height: 2px;
+  content: "";
+  background: linear-gradient(to left, #fff0, #eee);
+  transform: rotateZ(-45deg) translateX(50%);
+}

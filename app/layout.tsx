@@ -8,6 +8,7 @@ import SignUpModal from "@/components/SignUpModal";
 import HamModal from "@/components/HamModal";
 import BookModal from "@/components/BookModal";
 import DiaryModal from "@/components/DiaryModal";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "today`s log",
@@ -19,15 +20,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nanumMyungjo.variable} ${nanumPen.variable}`}>
+    <html
+      lang="en"
+      className={`${nanumMyungjo.variable} ${nanumPen.variable}`}
+      suppressHydrationWarning
+    >
       <body>
-        <HamModal />
-        <LoginModal />
-        <SignUpModal />
-        <BookModal />
-        <DiaryModal />
-        <NavBar />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <HamModal />
+          <LoginModal />
+          <SignUpModal />
+          <BookModal />
+          <DiaryModal />
+          {/* <NavBar /> */}
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

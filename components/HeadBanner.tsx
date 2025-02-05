@@ -13,7 +13,7 @@ export default function HeadBanner() {
   useEffect(() => {
     const selectedIndex = Math.floor(Math.random() * HEAD_TEXT.length);
     setHead(HEAD_TEXT[selectedIndex]);
-  }, [HEAD_TEXT]);
+  }, []);
 
   return (
     <div className="mt-5 text-center md:text-left">
