@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import "./calendar.css";
+import "@/components/styles/calendar.css";
 // import { v4 as uuidv4 } from "uuid";
 import HeadBanner from "@/components/HeadBanner";
 import { useRouter } from "next/navigation";
@@ -11,7 +11,6 @@ import useModalStore from "@/store/useModalStore";
 export default function Home() {
   const router = useRouter();
   const { setBookModal } = useModalStore();
-
   // useEffect(() => {
   //   getBook();
   // }, []);

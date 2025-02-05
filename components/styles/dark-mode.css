@@ -12,8 +12,9 @@
 }
 
 .container {
-  width: 56px;
+  width: 60px;
   border-radius: 50px;
+  border: none;
   padding: 4px;
   display: flex;
   align-items: center;
@@ -31,21 +32,21 @@
   position: absolute;
 }
 
-.star1 {
+.shooting1 {
   animation: meteor 5s infinite;
   right: 35px;
 }
-.star2 {
-  animation: meteor 7s infinite;
+.shooting2 {
+  animation: meteor 3s infinite;
   right: 20px;
 }
-.star3 {
-  animation: meteor 3s infinite;
-  right: 5px;
+.shooting3 {
+  animation: meteor 8s infinite;
+  right: 10px;
 }
-.star4 {
-  animation: meteor 2s infinite;
-  right: 25px;
+.shooting4 {
+  animation: meteor 6s infinite;
+  right: -10px;
 }
 
 .star::after {
