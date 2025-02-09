@@ -47,7 +47,7 @@ export default function Today() {
       <Button
         onClick={() => router.push("/today/register")}
         variant={"outline"}
-        className="fixed bottom-20 right-5"
+        className="fixed bottom-10 right-5"
       >
         공유하기
       </Button>

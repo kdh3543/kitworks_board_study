@@ -30,7 +30,7 @@ export default function DarkMode() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed bottom-10 right-5">
+    <div className="fixed bottom-20 right-5">
       <div
         className={` 
             container
@@ -54,6 +54,8 @@ export default function DarkMode() {
             <Image
               src={"/cloud.svg"}
               alt="구름이미지"
+              priority={true}
+              quality={75}
               width={15}
               height={10}
               className="cloud1"
@@ -61,6 +63,8 @@ export default function DarkMode() {
             <Image
               src={"/cloud.svg"}
               alt="구름이미지"
+              priority={true}
+              quality={75}
               width={10}
               height={10}
               className="cloud2"
