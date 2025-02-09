@@ -11,6 +11,16 @@
   }
 }
 
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(3px);
+  }
+}
+
 .container {
   width: 60px;
   border-radius: 50px;
@@ -58,4 +68,18 @@
   content: "";
   background: linear-gradient(to left, #fff0, #eee);
   transform: rotateZ(-45deg) translateX(50%);
+}
+
+.cloud1 {
+  position: absolute;
+  top: 2px;
+  left: 18px;
+  animation: floating 1s linear 0s infinite alternate;
+}
+
+.cloud2 {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  animation: floating 2s linear 0s infinite alternate;
 }
