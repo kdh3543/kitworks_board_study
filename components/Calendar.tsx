@@ -68,8 +68,8 @@ export default function Calendar() {
           className={`${
             year + month === realDate.getFullYear() + realDate.getMonth() &&
             realDate.getDate() === i &&
-            "bg-yellow-200"
-          } ${commonStyle} hover:bg-gray-200 relative`}
+            "bg-yellow-200 dark:text-gray-500"
+          } ${commonStyle} hover:bg-gray-200 dark:hover:text-violet-500 relative`}
           key={`current-${i}`}
           onClick={() => openDiaryModal(currentDate, i)}
         >

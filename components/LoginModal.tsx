@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import useModalStore from '@/store/useModalStore';
-import { Input } from './ui/input';
-import { Button } from './ui/button';
+} from "@/components/ui/dialog";
+import useModalStore from "@/store/useModalStore";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 export default function Modal() {
   const { loginModal, setLoginModal, setSignUpModal } = useModalStore();
@@ -27,14 +27,14 @@ export default function Modal() {
         </DialogHeader>
         <div className="mb-5">
           <div className="text-left my-5">
-            <span className="text-[#808080]">아이디</span>
+            <span className="text-[#808080] dark:text-white">아이디</span>
             <Input type="text" placeholder="아이디를 입력해주세요." />
           </div>
           <div className="text-left">
-            <span className="text-[#808080]">비밀번호</span>
+            <span className="text-[#808080] dark:text-white">비밀번호</span>
             <Input type="password" placeholder="비밀번호를 입력해주세요." />
           </div>
-          <div className="text-right text-[#808080]">
+          <div className="text-right text-[#808080] dark:text-white">
             <span onClick={openSignUpModal} className="cursor-pointer text-sm">
               회원가입
             </span>
@@ -47,7 +47,7 @@ export default function Modal() {
           >
             취소
           </Button>
-          <Button variant={'outline'} className="w-[45%] rounded-md font-inter">
+          <Button variant={"outline"} className="w-[45%] rounded-md font-inter">
             로그인
           </Button>
         </div>

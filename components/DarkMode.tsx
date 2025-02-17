@@ -33,19 +33,23 @@ export default function DarkMode() {
     <div className="fixed bottom-20 right-5">
       <div
         className={` 
-            container
+            w-[60px] rounded-full border-none p-[4px] flex items-center 
+            transition-all duration-500 ease-in-out relative overflow-hidden
             ${state ? "bg-blue-400" : " bg-gray-700"}
           `}
       >
         {!state ? (
           <>
-            <span className="star shooting1" />
-            <span className="star shooting2" />
-            <span className="star shooting3" />
-            <span className="star shooting4" />
-            <FaStar className="absolute w-2 h-2 top-1 right-2" color="yellow" />
+            <span className="star animate-meteor right-[35px]" />
+            <span className="star animate-meteor delay-1000 right-[20px]" />
+            <span className="star animate-meteor delay-700 right-[10px]" />
+            <span className="star animate-meteor delay-300 right-[-10px]" />
             <FaStar
-              className="absolute w-1.5 h-1.5 top-4 right-6"
+              className="absolute w-2 h-2 top-1 right-2 animate-floating delay-500"
+              color="yellow"
+            />
+            <FaStar
+              className="absolute w-1.5 h-1.5 top-4.5 right-6 animate-floating"
               color="yellow"
             />
           </>
@@ -58,7 +62,7 @@ export default function DarkMode() {
               quality={75}
               width={15}
               height={10}
-              className="cloud1"
+              className="absolute top-[2px] left-[18px] animate-floating"
             />
             <Image
               src={"/cloud.svg"}
@@ -67,7 +71,7 @@ export default function DarkMode() {
               quality={75}
               width={10}
               height={10}
-              className="cloud2"
+              className="absolute top-[10px] left-[5px] animate-floating delay-700"
             />
           </>
         )}

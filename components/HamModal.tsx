@@ -48,18 +48,26 @@ export default function HamModal() {
           <>
             <Button
               variant={"ghost"}
-              className="absolute right-10 top-10 hover:bg-transparent"
+              className="absolute right-10 top-10 hover:bg-transparent dark:text-white"
               onClick={() => setHamModal(false)}
             >
               X
             </Button>
             <div className="relative w-full h-full flex flex-col gap-10 ">
-              <Button variant={"ghost"} onClick={() => setLoginModal(true)}>
+              <Button
+                className="dark:text-white"
+                variant={"ghost"}
+                onClick={() => setLoginModal(true)}
+              >
                 로그인
               </Button>
               {menuList.map(({ link, value }) => (
                 <Button
-                  className={link === path ? "text-[#A52A2A]" : ""}
+                  className={
+                    link === path
+                      ? "text-[#A52A2A] dark:text-red-500"
+                      : "dark:text-white"
+                  }
                   key={link}
                   disabled={link === path}
                   variant={"ghost"}
@@ -71,7 +79,7 @@ export default function HamModal() {
               <Button
                 variant={"ghost"}
                 onClick={() => setSignUpModal(true)}
-                className="absolute bottom-10 w-full"
+                className="absolute bottom-10 w-full dark:text-white"
               >
                 회원가입
               </Button>
