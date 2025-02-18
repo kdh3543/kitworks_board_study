@@ -132,11 +132,11 @@
   font-family: var(--font-nanumPen);
   &:hover {
     color: white;
-    background-color: blueviolet;
+    background-color: #8a2be2;
   }
 }
 .h-active {
-  background-color: blueviolet;
+  background-color: #8a2be2;
   color: white;
 }
 .h-stop {

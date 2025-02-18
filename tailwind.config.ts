@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 export default {
   darkMode: ["class"],
@@ -30,10 +31,32 @@ export default {
             transform: "translateY(-20px)",
           },
         },
+        meteor: {
+          "0%": {
+            top: "-10vh",
+            transform: "translateX(70px)",
+            opacity: "1",
+          },
+          "100%": {
+            top: "20vh",
+            transform: "translateX(-20vh)",
+            opacity: "1",
+          },
+        },
+        floating: {
+          "0%": {
+            transform: "translate3d(0, 0, 0)",
+          },
+          "100%": {
+            transform: "translate3d(0, 3px, 0)",
+          },
+        },
       },
       animation: {
         fadein: "fadein 0.5s",
         fadeout: "fadeout 1s",
+        meteor: "meteor 5s linear infinite",
+        floating: "floating 1s linear infinite alternate",
       },
       fontFamily: {
         nanumMyungjo: ["var(--font-nanumMyungjo)", "sans-serif"],
@@ -81,13 +104,36 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        star: "#ffff0090",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        star: "0px 0px 8px 2px #c77eff",
+      },
+
+      spacing: {
+        4: "4px",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwind-scrollbar"),
+    plugin(({ addComponents }) => {
+      addComponents({
+        ".star": {
+          width: "4px",
+          height: "4px",
+          borderRadius: "9999px",
+          backgroundColor: "#ffff0090",
+          position: "absolute",
+          boxShadow: "0px 0px 8px 2px #c77eff",
+        },
+      });
+    }),
+  ],
 } satisfies Config;

@@ -4,6 +4,7 @@ import Image from "next/image";
 import HeadBanner from "@/components/HeadBanner";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { FaHeart } from "react-icons/fa";
 
 export default function Today() {
   const router = useRouter();
@@ -35,7 +36,11 @@ export default function Today() {
                     <span className="ml-2">by 닉네임</span>
                   </div>
                   <div className="flex items-center">
-                    <Image src={"/love.svg"} width={20} height={20} alt="찜" />
+                    <FaHeart
+                      width={20}
+                      height={20}
+                      className="dark:text-white"
+                    />
                     <span className="ml-1">4</span>
                   </div>
                 </div>

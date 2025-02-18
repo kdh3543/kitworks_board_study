@@ -33,7 +33,10 @@ export default function Tiptap() {
   return (
     <>
       <Toolbar editor={editor} />
-      <EditorContent editor={editor} />
+      <EditorContent
+        editor={editor}
+        className="dark:bg-white dark:text-black rounded-sm mt-10"
+      />
     </>
   );
 }
