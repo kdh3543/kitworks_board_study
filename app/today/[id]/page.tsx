@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 
 interface todayDetailProps {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }
 
-export default async function page({ params }: todayDetailProps) {
-  const { id } = await params;
-  return <div>today detail page:{id}</div>;
+export default function page({ params }: todayDetailProps) {
+  return <div>today detail page:{params.id}</div>;
 }
