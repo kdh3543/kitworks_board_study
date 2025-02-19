@@ -24,7 +24,7 @@ export default function Modal() {
         <DialogHeader>
           <DialogTitle>{bookModal.title}</DialogTitle>
         </DialogHeader>
-        <div className="m-auto mb-5">
+        <div className="m-auto mb-5 max-h-[600px]">
           <Image
             src={bookModal?.image || "1.svg"}
             alt="책 이미지"
@@ -35,8 +35,9 @@ export default function Modal() {
             }}
             quality={75}
             loading="lazy"
+            className="m-auto my-2"
           />
-          <div className="text-left mt-5">
+          <div className="text-left mt-5 h-40 overflow-auto leading-7">
             <p className="text-[#808080]">{bookModal.description}</p>
           </div>
           <div className="flex justify-between mt-10">

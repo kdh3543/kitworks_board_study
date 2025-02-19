@@ -131,6 +131,7 @@ export default {
           borderRadius: "9999px",
           backgroundColor: "#ffff0090",
           position: "absolute",
+          top: "-10px",
           boxShadow: "0px 0px 8px 2px #c77eff",
         },
       });
