@@ -10,12 +10,6 @@ import useModalStore from "@/store/useModalStore";
 import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-interface BookType {
-  title: String;
-  description: String;
-  image: String;
-}
-
 export default function MainPage(
   { items }: any = { title: "", desciption: "", image: "" },
 ) {
@@ -30,42 +24,17 @@ export default function MainPage(
       )
       .splice(0, 6);
     setList(arr);
-    console.log(arr);
   }, []);
 
+  const moveToDetail = (id: number) => {
+    router.push(`/today/${id.toString()}`);
+  };
+
   return (
-    <div className="m-auto w-full mb-10 md:w-1/2 xl:w-1/2 animate-fadein">
+    <div className="m-auto w-full md:w-1/2 xl:w-1/2 animate-fadein">
       <HeadBanner />
-      {/* 두번째 영역 */}
-      <div className="mt-20 text-center">
-        <p className="font-nanumMyungjo text-3xl">today&apos;s book</p>
-        <div className="grid grid-cols-3 gap-5 mt-5">
-          {list.map((v, i) => (
-            <div key={i} className="relative h-auto">
-              <div>
-                <Image
-                  src={v.image}
-                  alt="책 이미지"
-                  width={300}
-                  height={300}
-                  className="mx-auto cursor-pointer lg:min-h-[350px] min-h-[200px]"
-                  onClick={() =>
-                    setBookModal({
-                      image: v.image,
-                      title: v.title,
-                      description: v.description,
-                      state: true,
-                    })
-                  }
-                />
-                <p className="mt-2 font-nanumMyungjo font-semibold">책 제목</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* 세번째 영역 */}
-      <div className="mt-40 relative">
+      {/* blog 영역 */}
+      <div className="mt-20 relative">
         <div>
           <p className="font-nanumMyungjo text-3xl text-center">
             today&apos;s blog
@@ -81,7 +50,7 @@ export default function MainPage(
         </Button>
         <div className="grid grid-cols-3 mt-5 gap-5">
           {Array.from({ length: 3 }, (_, i) => (
-            <div key={i}>
+            <div key={i} onClick={() => moveToDetail(i)}>
               <Image
                 src={"/example2.svg"}
                 alt="공유 이미지"
@@ -108,8 +77,8 @@ export default function MainPage(
           ))}
         </div>
       </div>
-      {/* 네번째 영역 */}
-      <div className="mt-40 relative">
+      {/* diary 영역 */}
+      <div className="mt-20 relative">
         <p className="font-nanumMyungjo text-3xl text-center">
           today&apos;s memory
         </p>
@@ -123,6 +92,36 @@ export default function MainPage(
         </Button>
         <div>
           <Calendar />
+        </div>
+      </div>
+      {/* book 영역 */}
+      <div className="pb-20 text-center">
+        <p className="font-nanumMyungjo text-3xl">today&apos;s book</p>
+        <div className="grid grid-cols-3 gap-5 mt-5">
+          {list.map((v, i) => (
+            <div key={i} className="relative h-auto">
+              <div>
+                <Image
+                  src={v.image}
+                  alt="책 이미지"
+                  width={300}
+                  height={300}
+                  className="mx-auto cursor-pointer lg:min-h-[350px] min-h-[200px] max-h-[400px]"
+                  onClick={() =>
+                    setBookModal({
+                      image: v.image,
+                      title: v.title,
+                      description: v.description,
+                      state: true,
+                    })
+                  }
+                />
+                <p className="mt-2 font-nanumMyungjo font-semibold">
+                  {v.title}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

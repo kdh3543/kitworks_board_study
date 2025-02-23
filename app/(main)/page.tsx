@@ -1,11 +1,6 @@
-import MainPage from "@/components/MainPage";
+import MainPage from "@/app/(main)/(components)/Main";
 
 export default async function Home() {
-  // useEffect(() => {
-  //   getBook();
-  // }, []);
-  // const getBook = async () => {
-  //   try {
   const res = await fetch(
     `https://openapi.naver.com/v1/search/book.json?query='힐링'&display=100&start=1`,
     {
