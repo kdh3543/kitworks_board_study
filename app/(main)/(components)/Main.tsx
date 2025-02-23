@@ -9,6 +9,7 @@ import Calendar from "@/components/Calendar";
 import useModalStore from "@/store/useModalStore";
 import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function MainPage(
   { items }: any = { title: "", desciption: "", image: "" },
@@ -25,10 +26,6 @@ export default function MainPage(
       .splice(0, 6);
     setList(arr);
   }, []);
-
-  const moveToDetail = (id: number) => {
-    router.push(`/today/${id.toString()}`);
-  };
 
   return (
     <div className="m-auto w-full md:w-1/2 xl:w-1/2 animate-fadein">
@@ -50,7 +47,7 @@ export default function MainPage(
         </Button>
         <div className="grid grid-cols-3 mt-5 gap-5">
           {Array.from({ length: 3 }, (_, i) => (
-            <div key={i} onClick={() => moveToDetail(i)}>
+            <Link href={`/today/${i}`} key={i}>
               <Image
                 src={"/example2.svg"}
                 alt="공유 이미지"
@@ -73,7 +70,7 @@ export default function MainPage(
                   <span className="ml-1">4</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

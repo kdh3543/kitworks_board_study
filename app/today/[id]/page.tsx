@@ -1,10 +1,8 @@
-"use client";
-import React from "react";
+type Props = { params: Promise<{ id: string }> };
 
-interface todayDetailProps {
-  params: { id: string };
-}
+const BlogDetail = async ({ params }: Props) => {
+  const { id } = await params;
+  return <div>get id : {id}</div>;
+};
 
-export default function page({ params }: todayDetailProps) {
-  return <div>today detail page:{params.id}</div>;
-}
+export default BlogDetail;
