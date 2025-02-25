@@ -11,17 +11,25 @@ import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-export default function MainPage(
-  { items }: any = { title: "", desciption: "", image: "" },
-) {
+interface Item {
+  image: string;
+  title: string;
+  description: string;
+}
+
+type MainProps = {
+  items: Item[];
+};
+
+export default function MainPage({ items }: MainProps) {
   const router = useRouter();
   const { setBookModal } = useModalStore();
-  const [list, setList] = useState([]);
+  const [list, setList] = useState<Item[]>([]);
   useEffect(() => {
     const arr = items
       .sort(() => Math.random() - 0.5)
       .filter(
-        (v: any) => v.description.includes("힐링") || v.title.includes("힐링"),
+        (v: Item) => v.description.includes("힐링") || v.title.includes("힐링"),
       )
       .splice(0, 6);
     setList(arr);
