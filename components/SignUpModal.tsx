@@ -56,12 +56,6 @@ export default function Modal() {
             <span className="absolute left-0 text-[#808080] dark:text-white">
               프로필(선택)
             </span>
-            {/* <Image
-              width={100}
-              height={100}
-              src={"/profile.svg"}
-              alt="프로필 이미지"
-            /> */}
             <BiGhost className="w-36 h-36" />
           </div>
         </div>

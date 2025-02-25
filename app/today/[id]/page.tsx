@@ -1,8 +1,9 @@
+import BlogDetail from "./(components)/BlogDetail";
+
 type Props = { params: Promise<{ id: string }> };
 
-const BlogDetail = async ({ params }: Props) => {
+export default async function Page({ params }: Props) {
   const { id } = await params;
-  return <div>get id : {id}</div>;
-};
 
-export default BlogDetail;
+  return <BlogDetail id={id} />;
+}

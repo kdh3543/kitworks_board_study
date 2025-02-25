@@ -33,7 +33,7 @@ export default function MainPage(
       {/* blog 영역 */}
       <div className="mt-20 relative">
         <div>
-          <p className="font-nanumMyungjo text-3xl text-center">
+          <p className="font-nanumPen text-3xl text-center">
             today&apos;s blog
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function MainPage(
       </div>
       {/* diary 영역 */}
       <div className="mt-20 relative">
-        <p className="font-nanumMyungjo text-3xl text-center">
+        <p className="font-nanumPen text-3xl text-center">
           today&apos;s memory
         </p>
         <Button
@@ -93,7 +93,7 @@ export default function MainPage(
       </div>
       {/* book 영역 */}
       <div className="pb-20 text-center">
-        <p className="font-nanumMyungjo text-3xl">today&apos;s book</p>
+        <p className="font-nanumPen text-3xl">today&apos;s book</p>
         <div className="grid grid-cols-3 gap-5 mt-5">
           {list.map((v, i) => (
             <div key={i} className="relative h-auto">
@@ -113,9 +113,7 @@ export default function MainPage(
                     })
                   }
                 />
-                <p className="mt-2 font-nanumMyungjo font-semibold">
-                  {v.title}
-                </p>
+                <p className="mt-2 font-nanumPen font-semibold">{v.title}</p>
               </div>
             </div>
           ))}
