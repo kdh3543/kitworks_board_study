@@ -22,7 +22,7 @@ export default function Toolbar({ editor }: Props) {
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 1 }).run()
           }
-          className={`dark:bg-white dark:active:text-black tiptap-btn ${
+          className={`dark:bg-white bg-red-400 dark:active:text-black tiptap-btn ${
             editor.isActive("heading", { level: 1 })
               ? "h-active dark:!bg-[#8a2be2]"
               : "h-stop"
@@ -50,7 +50,7 @@ export default function Toolbar({ editor }: Props) {
           }
           className={`dark:bg-white tiptap-btn ${
             editor.isActive("heading", { level: 3 })
-              ? "h-active dark:!bg-[#8a2be2]"
+              ? "h-active dark:bg-[#8a2be2]!"
               : "h-stop"
           }
             `}
@@ -61,7 +61,7 @@ export default function Toolbar({ editor }: Props) {
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={`dark:bg-white tiptap-btn ${
             editor.isActive("bold")
-              ? "h-active dark:!bg-[#8a2be2]"
+              ? "h-active dark:bg-[#8a2be2]!"
               : "text-black"
           }
             `}
@@ -85,7 +85,7 @@ export default function Toolbar({ editor }: Props) {
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={`dark:bg-white tiptap-btn ${
             editor.isActive("bulletList")
-              ? "h-active dark:!bg-[#8a2be2]"
+              ? "h-active dark:bg-[#8a2be2]!"
               : "text-black"
           }
             `}
@@ -107,7 +107,7 @@ export default function Toolbar({ editor }: Props) {
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
           className={`dark:bg-white tiptap-btn ${
             editor.isActive("codeBlock")
-              ? "h-active dark:!bg-[#8a2be2]"
+              ? "h-active dark:bg-[#8a2be2]!"
               : "text-black"
           }
             `}

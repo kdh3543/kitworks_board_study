@@ -11,7 +11,7 @@ import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 export default function MainPage(
-  { items }: any = { title: "", desciption: "", image: "" },
+  { items }: any = { title: "", desciption: "", image: "" }
 ) {
   const router = useRouter();
   const { setBookModal } = useModalStore();
@@ -20,7 +20,7 @@ export default function MainPage(
     const arr = items
       .sort(() => Math.random() - 0.5)
       .filter(
-        (v: any) => v.description.includes("힐링") || v.title.includes("힐링"),
+        (v: any) => v.description.includes("힐링") || v.title.includes("힐링")
       )
       .splice(0, 6);
     setList(arr);

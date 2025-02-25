@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
 
 export default {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,25 +11,25 @@ export default {
   theme: {
     extend: {
       keyframes: {
-        fadein: {
-          "0%": {
-            opacity: "0.5",
-            transform: "translateY(-40px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
-        },
-        fadeout: {
-          "0%": {
-            opacity: "1",
-          },
-          "100%": {
-            opacity: "0",
-            transform: "translateY(-20px)",
-          },
-        },
+        // fadein: {
+        //   "0%": {
+        //     opacity: "0.5",
+        //     transform: "translateY(-40px)",
+        //   },
+        //   "100%": {
+        //     opacity: "1",
+        //     transform: "translateY(0)",
+        //   },
+        // },
+        // fadeout: {
+        //   "0%": {
+        //     opacity: "1",
+        //   },
+        //   "100%": {
+        //     opacity: "0",
+        //     transform: "translateY(-20px)",
+        //   },
+        // },
         meteor: {
           "0%": {
             top: "-10vh",
@@ -53,15 +52,10 @@ export default {
         },
       },
       animation: {
-        fadein: "fadein 0.5s",
+        // fadein: "fadein 0.5s",
         fadeout: "fadeout 1s",
         meteor: "meteor 5s linear infinite",
         floating: "floating 1s linear infinite alternate",
-      },
-      fontFamily: {
-        nanumMyungjo: ["var(--font-nanumMyungjo)", "sans-serif"],
-        nanumPen: ["var(--font-nanumPen)", "sans-serif"],
-        inter: ["var(--font-inter)", "sans-serif"],
       },
       colors: {
         background: "hsl(var(--background))",
@@ -121,8 +115,6 @@ export default {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
-    require("tailwind-scrollbar"),
     plugin(({ addComponents }) => {
       addComponents({
         ".star": {

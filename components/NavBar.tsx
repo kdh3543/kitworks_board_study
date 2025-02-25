@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import useModalStore from '@/store/useModalStore';
-import { RxHamburgerMenu } from 'react-icons/rx';
-import { useRouter } from 'next/navigation';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import useModalStore from "@/store/useModalStore";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useRouter } from "next/navigation";
 
 export default function NavBar() {
   const { loginModal, setLoginModal, setHamModal } = useModalStore();
@@ -18,11 +18,11 @@ export default function NavBar() {
       />
       <span
         className="text-4xl font-nanumPen cursor-pointer"
-        onClick={() => router.push('/')}
+        onClick={() => router.push("/")}
       >
         today&apos;s log
       </span>
-      <Button variant={'outline'} onClick={() => setLoginModal(!loginModal)}>
+      <Button variant={"outline"} onClick={() => setLoginModal(!loginModal)}>
         로그인
       </Button>
     </nav>
