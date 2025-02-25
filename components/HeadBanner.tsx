@@ -29,7 +29,7 @@ export default function HeadBanner() {
       <div className="mt-5 text-center md:text-left">
         <p className="font-nanumPen text-8xl">힐링 게시판, today&apos;s log</p>
         <p
-          className={`font-nanumMyungjo ${
+          className={`font-nanumPen ${
             darkMode ? "text-white" : "text-black"
           } text-opacity-30 text-6xl leading-snug mt-2`}
         >
@@ -38,7 +38,7 @@ export default function HeadBanner() {
           {head.text2}
         </p>
         <p
-          className={`font-nanumMyungjo ${
+          className={`font-nanumPen ${
             darkMode ? "text-white" : "text-black"
           } text-opacity-15 text-5xl mt-2`}
         >

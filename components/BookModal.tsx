@@ -35,7 +35,7 @@ export default function Modal() {
             }}
             quality={75}
             loading="lazy"
-            className="m-auto my-2"
+            className="m-auto my-2 max-h-[350px]"
           />
           <div className="text-left mt-5 h-40 overflow-auto leading-7">
             <p className="text-[#808080]">{bookModal.description}</p>

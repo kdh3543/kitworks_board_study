@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
+        source: "/today/:id",
+        destination: "/today/:id",
+      },
+      {
         source: "/:path*",
         destination: "https://openapi.naver.com/:path*",
       },

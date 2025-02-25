@@ -1,4 +1,4 @@
-import MainPage from "@/app/(main)/(components)/Main";
+import MainPage from "./(components)/Main";
 
 export default async function Home() {
   const res = await fetch(

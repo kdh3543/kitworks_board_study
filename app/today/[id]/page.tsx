@@ -1,10 +1,9 @@
-"use client";
-import React from "react";
+import BlogDetail from "./(components)/BlogDetail";
 
-interface todayDetailProps {
-  params: { id: string };
-}
+type Props = { params: Promise<{ id: string }> };
 
-export default function page({ params }: todayDetailProps) {
-  return <div>today detail page:{params.id}</div>;
+export default async function Page({ params }: Props) {
+  const { id } = await params;
+
+  return <BlogDetail id={id} />;
 }

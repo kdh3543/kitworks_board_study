@@ -9,7 +9,6 @@ import HamModal from "@/components/HamModal";
 import BookModal from "@/components/BookModal";
 import DiaryModal from "@/components/DiaryModal";
 import { ThemeProvider } from "@/components/theme-provider";
-import DarkMode from "@/components/DarkMode";
 
 export const metadata: Metadata = {
   title: "today`s log",
@@ -40,7 +39,6 @@ export default function RootLayout({
           <DiaryModal />
           <NavBar />
           {children}
-          <DarkMode />
         </ThemeProvider>
       </body>
     </html>
