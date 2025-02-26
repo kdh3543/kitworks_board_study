@@ -11,7 +11,7 @@ export default function NavBar() {
   const { loginModal, setLoginModal, setHamModal } = useModalStore();
   const router = useRouter();
   return (
-    <nav className="w-full py-2 px-2 border-b border-[#808080] flex justify-between items-center">
+    <nav className="fixed z-10 bg-white dark:bg-black top-0 w-full py-2 px-2 border-b border-[#808080] flex justify-between items-center">
       <RxHamburgerMenu
         onClick={() => setHamModal(true)}
         size={30}

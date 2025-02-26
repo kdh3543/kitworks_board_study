@@ -25,7 +25,7 @@ export default function RootLayout({
       className={`${nanumMyungjo.variable} ${nanumPen.variable}`}
       suppressHydrationWarning
     >
-      <body>
+      <body className="mt-20">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

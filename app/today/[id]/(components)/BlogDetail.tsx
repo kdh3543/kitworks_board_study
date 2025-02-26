@@ -44,20 +44,20 @@ export default function BlogDetail({ id }: BlogDetailProps) {
             내용여긴 내용임여긴 내용임여긴 내용임여긴 내용여긴 내용임여긴
             내용임여긴 내용임여긴 내용
           </p>
-          <div className="mt-3 flex items-center justify-between text-[#808080] text-[12px] h-[10%] ">
+          <div className="dark:text-white mt-10  flex items-center justify-between text-[#808080] text-[10px] h-[10%] ">
             <div className="flex items-center gap-2">
-              <FaHeart className="dark:text-white size-6" />
-              <span className="text-xl">4</span>
+              <FaHeart className=" size-[16px]" />
+              <span className="text-[16px]">4</span>
             </div>
             <div className="flex items-center gap-2">
-              <FaRegCommentDots className="dark:text-white size-6" />
-              <span className="text-xl">댓글</span>
+              <FaRegCommentDots className="size-[16px]" />
+              <span className="text-[16px]">댓글</span>
             </div>
           </div>
-          <div className="mt-5">
+          <div className="mt-20">
             <div className="w-full dark:border-white border-black border p-2">
               <div className="flex items-center gap-2 text-[#808080] dark:text-white">
-                <BiGhost className="w-8 h-8" />
+                <BiGhost className="w-6 h-6" />
                 <span className="text-xl">user</span>
               </div>
               <div className="mt-5 w-full">

@@ -39,8 +39,8 @@ export default function HamModal() {
   return (
     <>
       <div
-        className={`fixed top-0 w-full h-full z-10 bg-black/40 
-          backdrop-blur-md text-center p-40 font-semibold transform
+        className={`fixed top-0 w-full h-full z-20  bg-black/40 
+          backdrop-blur-md text-center p-40 transform
           ${hamModal ? "translate-y-0" : "translate-y-full"}
           transition-transform duration-1000 ease-in-out`}
       >
@@ -48,14 +48,14 @@ export default function HamModal() {
           <>
             <Button
               variant={"ghost"}
-              className="absolute right-10 top-10 hover:bg-transparent dark:text-white"
+              className="absolute right-10 top-10 text-3xl hover:bg-transparent dark:text-white"
               onClick={() => setHamModal(false)}
             >
               X
             </Button>
             <div className="relative w-full h-full flex flex-col gap-10 ">
               <Button
-                className="dark:text-white"
+                className="dark:text-white text-2xl"
                 variant={"ghost"}
                 onClick={() => setLoginModal(true)}
               >
@@ -63,11 +63,14 @@ export default function HamModal() {
               </Button>
               {menuList.map(({ link, value }) => (
                 <Button
-                  className={
-                    link === path
-                      ? "text-[#A52A2A] dark:text-red-500"
-                      : "dark:text-white"
-                  }
+                  className={`
+                    text-2xl
+                    ${
+                      link === path
+                        ? "text-[#A52A2A] dark:text-red-500"
+                        : "dark:text-white"
+                    }
+                      `}
                   key={link}
                   disabled={link === path}
                   variant={"ghost"}
@@ -79,7 +82,7 @@ export default function HamModal() {
               <Button
                 variant={"ghost"}
                 onClick={() => setSignUpModal(true)}
-                className="absolute bottom-10 w-full dark:text-white"
+                className="absolute text-2xl bottom-10 w-full dark:text-white"
               >
                 회원가입
               </Button>

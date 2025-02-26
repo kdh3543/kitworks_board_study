@@ -10,7 +10,7 @@ export default function Today() {
   const router = useRouter();
 
   const moveToDetail = (id: number) => {
-    router.push(`/today?${id}`);
+    router.push(`/today/${id}`);
   };
 
   return (
