@@ -35,6 +35,20 @@ export default function MainPage({ items }: MainProps) {
     setList(arr);
   }, []);
 
+  useEffect(() => {
+    // ✅ React Native WebView는 Android에선 document, iOS에선 window
+    window.addEventListener("message", (e: any) => {
+      alert("????!!" + e.data);
+    });
+    document.addEventListener("message", (e: any) => {
+      alert("????!#$" + e.data);
+    });
+  }, []);
+
+  const postDataToRN = () => {
+    window.ReactNativeWebView.postMessage(JSON.stringify({ data: "hello" }));
+  };
+
   return (
     <div className="m-auto w-full md:w-1/2 xl:w-1/2 animate-fadein">
       <HeadBanner />
@@ -45,6 +59,7 @@ export default function MainPage({ items }: MainProps) {
             today&apos;s blog
           </p>
         </div>
+        <Button onClick={postDataToRN}>RN data Test</Button>
         <Button
           variant={"outline"}
           size={"sm"}

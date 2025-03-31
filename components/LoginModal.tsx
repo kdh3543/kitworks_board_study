@@ -10,6 +10,7 @@ import {
 import useModalStore from "@/store/useModalStore";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+// import { supabase } from "@/lib/supabase";
 
 export default function Modal() {
   const { loginModal, setLoginModal, setSignUpModal } = useModalStore();
@@ -18,6 +19,19 @@ export default function Modal() {
     setLoginModal(false);
     setSignUpModal(true);
   };
+
+  // const login = async () => {
+  //   const { error, data } = await supabase.auth.signInWithPassword({
+  //     email: "test1@naver.com",
+  //     password: "test1234",
+  //   });
+
+  //   if (error) {
+  //     console.log(error);
+  //   } else {
+  //     console.log(data);
+  //   }
+  // };
 
   return (
     <Dialog open={loginModal} onOpenChange={() => setLoginModal(!loginModal)}>
